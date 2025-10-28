@@ -11,6 +11,10 @@ public class Covid19PacientInvertedIteratorAdapter implements InvertedIterator{
 	
 	ArrayList<Symptom> symptoms; 
 	int position = symptoms.size(); 
+
+	public Covid19PacientInvertedIteratorAdapter (Set<Symptom> s) {
+		this.symptoms = s;
+	}
 	
 	@Override
 	public Object previous() {
@@ -31,3 +35,4 @@ public class Covid19PacientInvertedIteratorAdapter implements InvertedIterator{
 	}
 
 }
+
