@@ -9,30 +9,32 @@ import domain.Symptom;
 public class Covid19PacientInvertedIteratorAdapter implements InvertedIterator{
 
 	
-	ArrayList<Symptom> symptoms; 
-	int position = symptoms.size(); 
-
+	Object[] symptoms; 
+	int position; 
+	
 	public Covid19PacientInvertedIteratorAdapter (Set<Symptom> s) {
-		this.symptoms = s;
+		this.symptoms = s.toArray();
+		this.goLast();
 	}
 	
 	@Override
 	public Object previous() {
-		Symptom symptom =symptoms[position];
+		Symptom symptom =(Symptom) symptoms[position];
 		position = position - 1;
 		return symptom;
 	}
 
 	@Override
 	public boolean hasPrevious() {
-		return position > 0;
+		return position >= 0;
 	}
 
 	@Override
 	public void goLast() {
-		position = symptoms.size();
+		position = symptoms.length-1;
 		
 	}
 
 }
+
 
