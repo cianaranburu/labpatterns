@@ -23,6 +23,11 @@ import domain.Symptom;
 			while(i.hasNext())
 				System.out.println(i.next());
 
+			Covid19PacientInvertedIteratorAdapter it = new Covid19PacientInvertedIteratorAdapter(p.getSymptoms());
+			ComparatorSeverityIndex comparatorSeverityIndex = new ComparatorSeverityIndex();
+			Sorting.sortedIterator(it, comparatorSeverityIndex);
+			while(it.hasPrevious())
+				System.out.println(it.previous());
 		}
 
 	}
