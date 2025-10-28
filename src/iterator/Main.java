@@ -26,6 +26,15 @@ import domain.Symptom;
 			Covid19PacientInvertedIteratorAdapter it = new Covid19PacientInvertedIteratorAdapter(p.getSymptoms());
 			ComparatorSeverityIndex comparatorSeverityIndex = new ComparatorSeverityIndex();
 			Sorting.sortedIterator(it, comparatorSeverityIndex);
+			it.goLast();
+			System.out.println("Lehen ordenazioa:");
+			while(it.hasPrevious())
+				System.out.println(it.previous());
+			
+			ComparatorSymptomName comparatorSymptomName = new ComparatorSymptomName();
+			Sorting.sortedIterator(it, comparatorSymptomName);
+			it.goLast();
+			System.out.println("Bigarren ordenazioa:");
 			while(it.hasPrevious())
 				System.out.println(it.previous());
 		}
