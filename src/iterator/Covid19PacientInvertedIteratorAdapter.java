@@ -38,3 +38,4 @@ public class Covid19PacientInvertedIteratorAdapter implements InvertedIterator{
 }
 
 
+
