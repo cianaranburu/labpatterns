@@ -13,11 +13,11 @@ import domain.Symptom;
 
 		public static void main(String[] args) {
 			Covid19Pacient p=new Covid19Pacient("Ane", 29);
-			p.addSymptom(new Symptom("s1", 10, 10), 1);
-			p.addSymptom(new Symptom("s2", 10, 10), 2);
-			p.addSymptom(new Symptom("s3", 10, 10), 3);
-			p.addSymptom(new Symptom("s4", 10, 10), 4);
-			p.addSymptom(new Symptom("s5", 10, 10), 5);
+			p.addSymptom(new Symptom("s1", 10, 9), 1);
+			p.addSymptom(new Symptom("s2", 10, 5), 2);
+			p.addSymptom(new Symptom("s3", 10, 7), 3);
+			p.addSymptom(new Symptom("s4", 10, 6), 4);
+			p.addSymptom(new Symptom("s5", 10, 1), 5);
 			
 			Iterator i=p.iterator();
 			while(i.hasNext())
@@ -25,18 +25,18 @@ import domain.Symptom;
 
 			Covid19PacientInvertedIteratorAdapter it = new Covid19PacientInvertedIteratorAdapter(p.getSymptoms());
 			ComparatorSeverityIndex comparatorSeverityIndex = new ComparatorSeverityIndex();
-			Sorting.sortedIterator(it, comparatorSeverityIndex);
+			Iterator SeverityIndex=Sorting.sortedIterator(it, comparatorSeverityIndex);
 			it.goLast();
-			System.out.println("Lehen ordenazioa:");
-			while(it.hasPrevious())
-				System.out.println(it.previous());
+			System.out.println("SeverityIndex ordenazioa:");
+			while(SeverityIndex.hasNext())
+				System.out.println(SeverityIndex.next());
 			
 			ComparatorSymptomName comparatorSymptomName = new ComparatorSymptomName();
-			Sorting.sortedIterator(it, comparatorSymptomName);
+			Iterator SymptomName=Sorting.sortedIterator(it, comparatorSymptomName);
 			it.goLast();
-			System.out.println("Bigarren ordenazioa:");
-			while(it.hasPrevious())
-				System.out.println(it.previous());
+			System.out.println("SymptomName ordenazioa:");
+			while(SymptomName.hasNext())
+				System.out.println(SymptomName.next());
 		}
 
 	}
